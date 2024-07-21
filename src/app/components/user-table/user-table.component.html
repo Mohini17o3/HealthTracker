@@ -1,24 +1,23 @@
-<div class="flex items-center justify-center flex-col">
-  <div class="border border-slate-900 p-2">
-    <label for="filter">Search by Name:</label>
-    <input id="filter" type="search" [formControl]="filterControl">
+<div class="flex items-center justify-center flex-col p-4">
+  <div class="border border-slate-900 rounded-lg p-4 mb-6 shadow-md bg-white">
+    <label for="filter" class="block text-lg font-semibold mb-2">Search by Name:</label>
+    <input id="filter" type="search" [formControl]="filterControl" class="w-full px-3 py-2 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-customPurple">
   </div>
 
-  <table class="table-auto border border-spacing-2 border-slate-500 drop-shadow-lg w-screen m-8">
-    <thead class="bg-customPurple">
-
+  <table class="table-auto border border-spacing-2 border-slate-500 shadow-lg rounded-lg w-full max-w-4xl mx-4">
+    <thead class="bg-customPurple text-white">
       <tr>
-        <th class="border border-slate-900 p-2">ID</th>
-        <th class="border border-slate-900 p-2">Name</th>
-        <th class="border border-slate-900 p-2">Workouts</th>
+        <th class="border border-slate-900 p-3">ID</th>
+        <th class="border border-slate-900 p-3">Name</th>
+        <th class="border border-slate-900 p-3">Workouts</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let user of paginatedRow">
+    <tbody class="bg-white">
+      <tr *ngFor="let user of paginatedRow" class="hover:bg-violet-100">
         <td class="border border-slate-900 p-2">{{ user.id }}</td>
         <td class="border border-slate-900 p-2">{{ user.name }}</td>
         <td class="border border-slate-900 p-2">
-          <ul>
+          <ul class="list-disc list-inside">
             <li *ngFor="let workout of user.workouts">
               {{ workout.type }} - {{ workout.minutes }} minutes
             </li>
@@ -33,5 +32,6 @@
   [length]="length"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"
-  aria-label="Select page">
-</mat-paginator>
+  aria-label="Select page"
+  class="my-4 mx-6"
+></mat-paginator>

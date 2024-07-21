@@ -9,12 +9,12 @@ import {ReactiveFormsModule , FormControl } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, MatPaginatorModule, ReactiveFormsModule],
   templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.css']
 })
+
 export class TableComponent implements OnInit, AfterViewInit {
   users: any[] = [];
   filteredUsers: any[] = [];
-  paginatedRow: any[] = [];
+  paginatedRow: any[] = [];                     
   length = 0;
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 15, 20, 40, 100];
@@ -26,7 +26,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.userService.users$.subscribe(users => {
-      this.users = users;
+      this.users = users;       
       this.filteredUsers = users; 
       this.length = users.length;
       this.paginatedRowFunction({ pageIndex: 0, pageSize: this.pageSize } as PageEvent);

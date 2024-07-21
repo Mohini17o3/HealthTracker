@@ -7,7 +7,6 @@ import { UserService } from '../../../../services/user.service';
   standalone: true,
   imports: [ReactiveFormsModule, NgIf, CommonModule],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.css'
 })
 export class FormComponent implements OnInit {
   FormComponent!: FormGroup;
