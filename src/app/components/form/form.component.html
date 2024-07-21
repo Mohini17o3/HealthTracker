@@ -1,0 +1,55 @@
+
+<div class="flex items-center justify-center font-extrabold text-6xl "> 
+    <h1>Health Tracker</h1>
+</div>
+
+<form [formGroup]="FormComponent" (ngSubmit)="onSubmit()"> 
+
+<div class="flex p-8 items-center justify-center ">
+   <div class="grid p-8 bg-customPurple rounded gap-4 drop-shadow-lg">
+
+ <div>
+    <label class="text-white" for="name">Name: </label>
+<input class="rounded" id="name" formControlName="name"  type="text" required>
+<div *ngIf="FormComponent.controls['name'].invalid && FormComponent.controls['name'].touched">
+    Name is required.
+  </div>
+
+ </div>       
+
+ <div>
+    <label  class="text-white" for="name">Workout Type: </label>
+<select class="rounded" id = "type" formControlName="type"  required>
+    <option value="Running">Running</option>
+    <option value="Cycling">Cycling</option>
+    <option value="Yoga">Yoga</option>
+    <option value="Swimming">Swimming</option>
+
+</select>
+<div *ngIf="FormComponent.controls['type'].invalid && FormComponent.controls['type'].touched">
+    Type is required.
+  </div>
+ </div>
+
+ <div>
+    <label class="text-white" for="name"> Workout Minutes: </label>
+<input class="rounded" id="minutes" type="text" formControlName="minutes" required>
+ </div>
+
+ <div *ngIf="FormComponent.controls['minutes'].invalid && FormComponent.controls['minutes'].touched">
+    Minutes must be greater than 0 .
+  </div>
+
+ <div class="flex items-center justify-center"> 
+    <input class="rounded bg-gray-300 cursor-pointer p-2 hover:bg-gray-400 hover:text-white transition" type="submit" value="Add" [disabled]="FormComponent.invalid" >
+
+ </div>
+
+
+</div>
+
+</div>
+
+</form>  
+
+
