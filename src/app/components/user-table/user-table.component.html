@@ -1,8 +1,12 @@
+<div class="flex items-center justify-center flex-col">
+  <div class="border border-slate-900 p-2">
+    <label for="filter">Search by Name:</label>
+    <input id="filter" type="search" [formControl]="filterControl">
+  </div>
 
-<div class="flex items-center justify-center ">
-
-  <table class="table-auto border border-spacing-2 border-slate-500 drop-shadow-lg w-screen m-8 ">
+  <table class="table-auto border border-spacing-2 border-slate-500 drop-shadow-lg w-screen m-8">
     <thead class="bg-customPurple">
+
       <tr>
         <th class="border border-slate-900 p-2">ID</th>
         <th class="border border-slate-900 p-2">Name</th>
@@ -10,8 +14,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
-        <td class="border border-slate-900 p-2" >{{ user.id }}</td>
+      <tr *ngFor="let user of paginatedRow">
+        <td class="border border-slate-900 p-2">{{ user.id }}</td>
         <td class="border border-slate-900 p-2">{{ user.name }}</td>
         <td class="border border-slate-900 p-2">
           <ul>
@@ -25,10 +29,9 @@
   </table>
 </div>
 
-
-<mat-paginator [length]="100"
-[pageSize]="10"
-[pageSizeOptions]="[5, 10, 25, 100]"
-aria-label="Select page">
-
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  aria-label="Select page">
 </mat-paginator>
